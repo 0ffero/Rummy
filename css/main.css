@@ -1,0 +1,387 @@
+:root {
+    --no: #aa1000;
+    --yes: #00833a;
+    --undecided: #ee8000;
+}
+/* ANIMATIONS */
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; display: none; }
+}
+
+.fadeOut {
+    animation: fade-out 1s ease-out forwards;
+}
+
+
+
+/* DEFAULT DOM STYLES */
+body { 
+    background: #0b3d0b;
+    margin: 0;
+    overflow: hidden;
+    font-family: Roboto, sans-serif;
+}
+canvas {
+    background: #0a5a0a;
+    border-radius: 20px;
+    box-shadow: 20px 20px 40px black;
+    display: block;
+    margin: auto;
+}
+p {
+    letter-spacing: 1px;
+    margin: 6px 0;
+}
+
+
+
+/* GAME STYLES */
+#closeInfoButton, #closeStatsButton, #continueButton, #infoButton, #newGameButton, #playerStatsButton {
+    transition: 333ms;
+    background: linear-gradient(180deg,rgba(82, 209, 82, 1) 0%, rgba(22, 66, 47, 1) 100%);
+}
+#closeInfoButton {
+    position: relative;
+    left: 848px;
+}
+#continueButton {
+    transition: 750ms;
+
+    position: absolute;
+    transform: translateX(100vw);
+    opacity: 0;
+}
+#continueButton.active {
+    transform: translateX(-50%);
+    opacity: 1;
+}
+.gameButton {
+    transition: 333ms;
+
+    align-items: center;
+    background: #00833a;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 16px 6px black;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    font-size: 21px;
+    font-weight: bold;
+    height: 45px;
+    justify-content: center;
+    margin: 10px;
+    text-shadow: 0px 0px 7px black;
+    text-transform: uppercase;
+    width: 180px;
+}
+.gameButton:hover {
+    box-shadow: 0px 0px 15px 2px black;
+    transform: scale(1.1);
+}
+#gameContainer {
+    align-items: center;
+    background-image: url(../textures/ground/grass.jpg);
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+}
+#gameButtons {
+    transition: 1000ms;
+
+    align-items: center;
+    display: flex;
+    opacity: 0;
+    z-index: 5;
+}
+#gameButtons.active {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.highlight {
+    color: #00db61;
+}
+
+.infoTitle {
+    color: #d7a100;
+}
+
+
+#newGameNo:hover {
+    background: var(--no);
+}
+#newGameYes:hover {
+    background: var(--yes);
+}
+#newGameNo {
+    background: var(--undecided);
+}
+#newGameYes {
+    background: var(--undecided);
+    margin-left: 10px;
+}
+#newGameYesNoContainer {
+    transition: 333ms;
+
+    display: flex;
+    opacity: 0;
+    position: relative;
+    transform: translateY(110vh);
+}
+#newGameYesNoContainer.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#resetStatsButton {
+    background-color: var(--undecided);
+    transition: 333ms;
+}
+#resetStatsButton:hover {
+    background-color: var(--no);
+}
+
+#saveIcon {
+    transition: 333ms;
+
+    color: white;
+    cursor: pointer;
+    font-size: 64px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    text-shadow: 3px 3px 5px black;
+}
+#saveIcon.active {
+    opacity: 1;
+}
+
+#scoreContainer {
+    align-items: center;
+    background-color: white;
+    background-image: url(../images/paper_bg.png);
+    color: #666666;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    height: 235px;
+    opacity: 0.8;
+    overflow: hidden;
+    padding: 10px 0;
+    position: absolute;
+    transform: translate(-100%, -50%);
+    width: 370px;
+}
+.scoreLabel {
+    font-size: 22px;
+    font-weight: bold;
+}
+.scoreValue {
+    color: #888888;
+    text-align: center;
+    font-size: 25px;
+}
+#scoresSection {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+#scoreTitle {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#volumeButton {
+    transition: 333ms;
+
+    background-color: #242543;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 16px 6px black;
+    cursor: pointer;
+    font-size: 35px;
+    margin-left: 32px;
+}
+#volumeButton:hover {
+    box-shadow: 0px 0px 15px 2px black;
+    transform: scale(1.1);
+}
+
+#welcomeText {
+    bottom: 0px;
+    color: white;
+    cursor: default;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 200%;
+    margin-bottom: 20px;
+    position: absolute;
+    right: 20px;
+    text-align: center;
+    text-shadow: 6px 4px 5px black;
+}
+
+/* INFO STYLES */
+#infoContainer {
+    transition: 333ms;
+
+    align-items: center;
+    background-color: #111;
+    color: white;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    font-weight: bold;
+    height: 100vh;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: translateX(110vw);
+    width: 100vw;
+    z-index: 9;
+}
+#infoContainer.active {
+    opacity: 0.99;
+    transform: translateX(0);
+}
+
+#infoInnerContainer {
+    background: linear-gradient(180deg,rgba(166, 130, 48, 1) 0%, rgba(59, 35, 0, 1) 100%);
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-shadow: 5px 5px 15px black;
+    padding: 20px;
+    text-shadow: 2px 2px 4px black;
+    width: 1040px;
+}
+
+.spacer {
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+    width: 100%;
+}
+
+
+
+/* LOADING SCREEN STYLES */
+#loadingScreenContainer {
+    align-items: center;
+    background-color: #111;
+    background-image: url(../loadingScreen.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: 10;
+}
+
+.loadingScreenLetter {
+    display: inline-block;
+    min-height: 10px;
+    min-width: 10px;
+}
+
+#loadingScreenText {
+    color: white;
+    font-size: 72px;
+    font-weight: bold;
+    margin-top: 20px;
+    position: absolute;
+    top: 80%;
+    text-align: center;
+    text-shadow: 5px 4px 3px black;
+    z-index: 11;
+}
+
+
+
+/* PLAYER STATS STYLES */
+#playerStatsContainer {
+    transition: 333ms;
+
+    align-items: center;
+    background-color: #111;
+    color: white;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    font-weight: bold;
+    height: 100vh;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: translateX(110vw);
+    width: 100vw;
+    z-index: 9;
+}
+#playerStatsContainer.active {
+    opacity: 0.99;
+    transform: translateX(0);
+}
+
+#playerStatsContent {
+    background: linear-gradient(180deg,rgba(166, 130, 48, 1) 0%, rgba(59, 35, 0, 1) 100%);
+    border: 2px solid white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    margin: 32px;
+    text-shadow: 3px 3px 5px black;
+    width: 500px;
+}
+
+.statsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px;
+    text-align: center;
+}
+
+
+/* Volume Pop-Up Styles */
+#volumePopUpContainer {
+    transition: 333ms;
+
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    height: 77px;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    transform: translate(-50%, -100%);
+    width: 300px;
+    z-index: 8;
+}
+#volumePopUpContainer.active {
+    opacity: 0.99;
+}
+
+#volumePopUpInnerContainer {
+    display: flex;
+    column-gap: 20px;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rummy</title>
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <script src="js/classes/rummy.js"></script>
+        <script src="js/classes/otherClasses.js"></script>
+        <script src="js/classes/popup04_Class.js"></script>
+
+        <script src="js/miscFunctions_v3.js"></script>
+
+        <script defer src="js/vars.js"></script>
+        <style>
+            @import url('css/main.css');
+            @import url('fonts/roboto.css');
+        </style>
+    </head>
+    <body oncontextmenu="return false;">
+        <div id="loadingScreenContainer">
+            <div id="loadingScreenText">Loading...</div>
+        </div>
+        <div id="gameContainer">
+            <div id="welcomeText">Mini Rummy!<br/>by offerO 04</div>
+            <canvas id="game" width="1120" height="700"></canvas>
+            <div id="continueButton" class="gameButton">CONTINUE</div>
+            <div id="gameButtons">
+                <div id="newGameButton" class="gameButton">New Game</div>
+                <div id="playerStatsButton" class="gameButton">Player Stats</div>
+                <div id="infoButton" class="gameButton">Info</div>
+                <div id="volumeButton">🔊</div>
+            </div>
+            <div id="newGameYesNoContainer" class="hidden">
+                <div id="newGameNo" class="gameButton">No</div>
+                <div id="newGameYes" class="gameButton">Yes</div>
+            </div>
+        </div>
+        <div id="playerStatsContainer">
+            <div id="playerStatsTitle">Player Stats</div>
+            <div id="playerStatsContent">
+                <div id="gamesPlayedContainer" class="statsContainer">
+                    <div class="statsTitle">Games Played</div>
+                    <div id="gamesPlayedValue" class="statsValue"></div>
+                </div>
+                <div id="gamesWonContainer" class="statsContainer">
+                    <div class="statsTitle">Games Won</div>
+                    <div id="gamesWonValue" class="statsValue"></div>
+                </div>
+                <div id="winPercentageContainer" class="statsContainer">
+                    <div class="statsTitle">Win Percentage</div>
+                    <div id="winPercentageValue" class="statsValue"></div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                <div id="resetStatsButton" class="gameButton">Reset</div>
+                <div id="closeStatsButton" class="gameButton">Close</div>
+            </div>
+        </div>
+        <div id="infoContainer">
+            <div id="infoInnerContainer">
+                <div class="infoTitle">INFO</div>
+                <div class="infoSection">
+                    <p>Mini Rummy is a simplified version of the classic card game Rummy, designed for quick and fun gameplay. The objective of the game is to be the first player to get rid of all your cards by forming valid sets and runs.</p>
+                    <p>In Mini Rummy, players are dealt a hand of 10 cards and take turns drawing and discarding cards to create sets (three or four cards of the same rank e.g. 7, 7, 7) and runs (three or more consecutive cards of the same suit e.g. 4, 5, 6, 7, 8 of hearts). The first player to successfully form valid combinations and discard all their cards wins the game.</p>
+                    <p>Mini Rummy is perfect for casual gaming sessions, offering a fast-paced and enjoyable experience for players of all ages.</p>
+                </div>
+                <div class="spacer"></div>
+                <div class="infoTitle">KEYBOARD:</div>
+                <div class="infoSection">
+                    <p>Press <span class="highlight">1</span> to change the floor type</p>
+                    <p>Press <span class="highlight">Arrow 🠚</span> to select the next floor type</p>
+                    <p>Press <span class="highlight">Arrow 🠘</span> to select the previous floor type</p>
+                    <p>Press <span class="highlight">2</span> to change the table type</p>
+                    <p>Press <span class="highlight">Arrow 🠙</span> to select the next table type</p>
+                    <p>Press <span class="highlight">Arrow 🠛</span> to select the previous table type</p>
+                    <p>Press <span class="highlight">3</span> to change the deal speed (Fastest, Fast, Medium &amp; Slow)</p>
+                </div>
+                <div class="spacer"></div>
+                <div id="closeInfoButton" class="gameButton">Close</div>
+            </div>
+        </div>
+        <div id="volumePopUpContainer">
+            <div id="volumePopUpInnerContainer">
+                <div id="volumePopUpTitle">Volume</div>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.01">
+                <div id="volumeValue">100%</div>
+            </div>
+        </div>
+        <div id="saveIcon">💾</div>
+        <div id="scoreContainer">
+            <div id="scoreTitle">Scores</div>
+            <div id="scoresSection">
+                <div id="player0ScoreContainer" class="scoreSubContainer">
+                    <div class="scoreLabel">Steven</div>
+                    <div id="player0Scores" class="scoreValuesContainer">
+                        <div class="scoreValue">0</div>
+                    </div>
+                </div>
+                <div id="player1ScoreContainer" class="scoreSubContainer">
+                    <div class="scoreLabel">Computer</div>
+                    <div id="player1Scores" class="scoreValuesContainer">
+                        <div class="scoreValue">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
